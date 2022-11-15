@@ -34,7 +34,7 @@ function filter(array, callback) {
   let mas = [];
   for(let i = 0; i < array.length; i++){
     if(callback(array[i], i, array))
-        mas.push(temp);
+        mas.push(array[i]);
   }
   return mas;
 }
@@ -52,7 +52,7 @@ function reduce(array, callback, initialValue) {
   let res = 0;
   for(let i = 0; i < array.length; i++){
       res += callback(initialValue, array[i], i, array);
-      initialValue = temp;
+      initialValue = array[i];
   }
   return res;
 }
@@ -65,7 +65,7 @@ function reduce(array, callback, initialValue) {
 */
 function some(array, callback) {
   for(let i = 0; i < array.length; i++){
-    if (callback(array[i], i, array)))
+    if (callback(array[i], i, array))
       return true;
   }
 }
