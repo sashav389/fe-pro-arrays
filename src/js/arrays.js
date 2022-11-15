@@ -49,12 +49,10 @@ function filter(array, callback) {
  Помните, что вы передаете функцию, которая ожидает 3 аргумента, текущий элемент, индекс и сам массив. Автоматическая проверка будет это учитывать.
 */
 function reduce(array, callback, initialValue) {
-  let res = 0;
   for(let i = 0; i < array.length; i++){
-      res += callback(initialValue, array[i], i, array);
-      initialValue = array[i];
+    initialValue = callback(initialValue, array[i], i, array);
   }
-  return res;
+  return initialValue;
 }
 
 /* Функция принимает в себе первым аргументом массив, вторым функцию которая будет вызываться для каждого элемента массива
@@ -68,6 +66,7 @@ function some(array, callback) {
     if (callback(array[i], i, array))
       return true;
   }
+  return false;
 }
 
 /* Функция принимает в себе первым аргументом массив, вторым функцию которая будет вызываться для каждого элемента массива
@@ -81,6 +80,7 @@ function every(array, callback) {
     if (!callback(array[i], i, array))
       return false;
   }
+  return true;
 }
 
 // Эту часть не удаляем, она важна для проверки результата
