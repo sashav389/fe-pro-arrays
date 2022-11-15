@@ -5,8 +5,8 @@
  Помните, что вы передаете функцию, которая ожидает 3 аргумента, текущий элемент, индекс и сам массив. Автоматическая проверка будет это учитывать.
 */
 function forEach(array, callback) {
-  for(let temp in array){
-    callback(temp, array.indexOf(temp), array);
+  for(let i = 0; i < array.length; i++){
+    callback(array[i], i, array);
   }
 }
 
@@ -18,8 +18,8 @@ function forEach(array, callback) {
 */
 function map(array, callback) {
   let mas = [];
-  for(let temp in array){
-   mas.push(callback(temp, array.indexOf(temp), array));
+  for(let i = 0; i < array.length; i++){
+   mas.push(callback(array[i], i, array));
   }
   return mas;
 }
@@ -32,8 +32,8 @@ function map(array, callback) {
 */
 function filter(array, callback) {
   let mas = [];
-  for(let temp in array){
-    if(callback(temp, array.indexOf(temp), array))
+  for(let i = 0; i < array.length; i++){
+    if(callback(array[i], i, array))
         mas.push(temp);
   }
   return mas;
@@ -50,8 +50,8 @@ function filter(array, callback) {
 */
 function reduce(array, callback, initialValue) {
   let res = 0;
-  for(let temp in array){
-      res += callback(initialValue, temp, array.indexOf(temp), array);
+  for(let i = 0; i < array.length; i++){
+      res += callback(initialValue, array[i], i, array);
       initialValue = temp;
   }
   return res;
@@ -64,8 +64,8 @@ function reduce(array, callback, initialValue) {
  Помните, что вы передаете функцию, которая ожидает 3 аргумента, текущий элемент, индекс и сам массив. Автоматическая проверка будет это учитывать.
 */
 function some(array, callback) {
-  for(let temp in array) {
-    if (callback(temp, array.indexOf(temp), array))
+  for(let i = 0; i < array.length; i++){
+    if (callback(array[i], i, array)))
       return true;
   }
 }
@@ -77,8 +77,8 @@ function some(array, callback) {
  Помните, что вы передаете функцию, которая ожидает 3 аргумента, текущий элемент, индекс и сам массив. Автоматическая проверка будет это учитывать.
 */
 function every(array, callback) {
-  for(let temp in array) {
-    if (!callback(temp, array.indexOf(temp), array))
+  for(let i = 0; i < array.length; i++){
+    if (!callback(array[i], i, array))
       return false;
   }
 }
